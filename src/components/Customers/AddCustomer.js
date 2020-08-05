@@ -64,9 +64,15 @@ class AddCustomer extends React.Component{
   }
 
   onKeyedEntry = (event) =>{
+    if(this.state.keyedEntry === false)
+    {    this.setState({
+      keyedEntry:true
+  })}
+  else if(this.state.keyedEntry === true){
     this.setState({
-        keyedEntry:event.target.value
+      keyedEntry:false
     })
+  }
   }
 
   onEarliestArrival = (event) =>{
@@ -147,7 +153,7 @@ class AddCustomer extends React.Component{
             </div>
           </div>
           <Container>
-          <div id="">
+          <div id="whiteBoard">
           <h2>Contact details</h2>
   <Row>
     <Col sm={6}>  <Form.Group controlId="businessName">
@@ -170,7 +176,7 @@ class AddCustomer extends React.Component{
   </div>
   <br>
   </br>
-  <div id="">
+  <div id="whiteBoard">
           <h2>Delivery information</h2>
   <Row>
     <Col sm={8}>  <Form.Group controlId="deliveryAddress">
@@ -179,7 +185,7 @@ class AddCustomer extends React.Component{
   </Form.Group></Col>
   <Col sm={8}>  <Form.Group controlId="keyedEntry">
     <Form.Label>Keyed Entry</Form.Label>
-    <Form.Check size="lg" type="radio" aria-label="radio 1" value={this.state.keyedEntry} onChange={this.onKeyedEntry} required />
+    <Form.Check size="lg" type="checkbox" aria-label="checkbox" value={this.state.keyedEntry} onClick={this.onKeyedEntry} required />
   </Form.Group></Col>
   <Col sm={6}>  <Form.Group controlId="earliestArrival">
     <Form.Label>Earliest arrival</Form.Label>
@@ -201,6 +207,10 @@ class AddCustomer extends React.Component{
     <Form.Control size="lg" type="text" placeholder="Enter contact phone number" value={this.state.deliveryContactPhone} onChange={this.onDeliveryContactPhone} required />
   </Form.Group></Col>
   </Row>
+  <Form.Group controlId="exampleForm.ControlTextarea1">
+    <Form.Label>Delivery notes</Form.Label>
+    <Form.Control as="textarea" value={this.state.deliveryNotes} onChange={this.onDeliveryNotes} rows="4" />
+  </Form.Group>
   <Button variant="primary" size="lg" block onClick={this.onSubmit}>
     Add client
   </Button>
