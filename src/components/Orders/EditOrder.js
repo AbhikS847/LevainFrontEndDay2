@@ -1,35 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-class AddOrder extends React.Component{
-
-  constructor(props){
-    super(props);
-    this.state = {
-      customer:"",
-      deliveryDate:"",
-      quantity:0
-    }
-  }
-
-  onCustomer = (event) =>{
-    this.setState({
-      customer:event.target.value
-    })
-  }
-
-  onDeliveryDate = (event) =>{
-    this.setState({
-      deliveryDate:event.target.value
-    })
-  }
-
-  onQuantity = (event) =>{
-    this.setState({
-      onQuantity:event.target.value
-    })
-  }
-
+class EditOrder extends React.Component{
     render(){
         return(
             <div>
@@ -41,7 +13,7 @@ class AddOrder extends React.Component{
                   <h1>
                     <b>
                       <i />
-                        Add an order
+                        Edit an order
                     </b>
                   </h1>
                 </div>
@@ -53,4 +25,4 @@ class AddOrder extends React.Component{
     }
 }
 
-export default AddOrder;
+export default EditOrder;

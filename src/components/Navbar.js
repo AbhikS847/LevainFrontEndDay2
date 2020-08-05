@@ -16,6 +16,9 @@ class Navbar extends React.Component{
                 </li>
                 <div className="rule"></div>
                 <li className="nav-item">
+                  <NavLink to="/customers" className="nav-link" activeClassName="nav-link active" ><i className="icon users"></i> Customers</NavLink>
+                </li>
+                <li className="nav-item">
                   <NavLink to="/orders" className="nav-link" activeClassName="nav-link active" ><i className="icon folder open"></i> Orders</NavLink>
                 </li>
                 <li className="nav-item">
