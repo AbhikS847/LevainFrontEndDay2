@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import {Container,InputGroup, FormControl, Button, Row,Form,Col} from 'react-bootstrap';
+import {Container, Button, Row, Form, Col} from 'react-bootstrap';
 
 class AddCustomer extends React.Component{
 
@@ -12,12 +12,13 @@ class AddCustomer extends React.Component{
     this.onEmail = this.onEmail.bind(this);
     this.onDeliveryAddress = this.onDeliveryAddress.bind(this);
     this.onKeyedEntry = this.onKeyedEntry.bind(this);
-    this.onEarliestArrival = this.onKeyedEntry.bind(this);
+    this.onEarliestArrival = this.onEarliestArrival.bind(this);
     this.onLatestArrival = this.onLatestArrival.bind(this);
     this.onDeliveryContactName = this.onDeliveryContactName.bind(this);
     this.onDeliveryContactPhone = this.onDeliveryContactPhone.bind(this);
     this.onDeliveryNotes = this.onDeliveryNotes.bind(this);
-
+    this.onSubmit = this.onSubmit.bind(this);
+    
     this.state = {
       contactDetails:{
         businessName:"",
@@ -183,19 +184,19 @@ class AddCustomer extends React.Component{
   <Row>
     <Col sm={6}>  <Form.Group controlId="businessName">
     <Form.Label>Business Name</Form.Label>
-    <Form.Control size="lg" type="text" placeholder="Enter business name" onChange={this.onBusinessName} required />
+    <Form.Control size="lg" type="text" placeholder="Enter business name" value={this.state.contactDetails.businessName} onChange={this.onBusinessName} required />
   </Form.Group></Col>
   <Col sm={6}>  <Form.Group controlId="contactName">
     <Form.Label>Contact Name</Form.Label>
-    <Form.Control size="lg" type="text" placeholder="Enter contact name" onChange={this.onContactName} required />
+    <Form.Control size="lg" type="text" placeholder="Enter contact name" value={this.state.contactDetails.contactName} onChange={this.onContactName} required />
   </Form.Group></Col>
-  <Col sm={6}>  <Form.Group controlId="phoneNumber">
+  <Col sm={6}>  <Form.Group controlId="businessPhoneNumber">
     <Form.Label>Phone</Form.Label>
-    <Form.Control size="lg" type="text" placeholder="Enter phone number" onChange={this.onPhone} required />
+    <Form.Control size="lg" type="text" placeholder="Enter phone number" value={this.state.contactDetails.Phone} onChange={this.onPhone} required />
   </Form.Group></Col>
-  <Col sm={6}>  <Form.Group controlId="contactName">
+  <Col sm={6}>  <Form.Group controlId="email">
     <Form.Label>Email</Form.Label>
-    <Form.Control size="lg" type="email" placeholder="Enter email here" onChange={this.onEmail} required />
+    <Form.Control size="lg" type="email" placeholder="Enter email here" value={this.state.contactDetails.Email} onChange={this.onEmail} required />
   </Form.Group></Col>
   </Row>
   </div>
@@ -206,30 +207,30 @@ class AddCustomer extends React.Component{
   <Row>
     <Col sm={8}>  <Form.Group controlId="deliveryAddress">
     <Form.Label>Delivery Address</Form.Label>
-    <Form.Control size="lg" type="text" placeholder="Enter delivery address" onChange={this.onDeliveryAddress} required />
+    <Form.Control size="lg" type="text" placeholder="Enter delivery address" value={this.state.deliveryInfo.deliveryAddress} onChange={this.onDeliveryAddress} required />
   </Form.Group></Col>
   <Col sm={8}>  <Form.Group controlId="keyedEntry">
     <Form.Label>Keyed Entry</Form.Label>
-    <Form.Check size="lg" type="radio" aria-label="radio 1" onChange={this.onKeyedEntry} required />
+    <Form.Check size="lg" type="radio" aria-label="radio 1" value={this.state.deliveryInfo.keyedEntry} onChange={this.onKeyedEntry} required />
   </Form.Group></Col>
   <Col sm={6}>  <Form.Group controlId="earliestArrival">
     <Form.Label>Earliest arrival</Form.Label>
-    <Form.Control size="lg" type="time" placeholder="Example 12:00 AM" onChange={this.onEarliestArrival} required />
+    <Form.Control size="lg" type="time" placeholder="Example 12:00 AM" value={this.state.deliveryInfo.latestArrival} onChange={this.onEarliestArrival} required />
   </Form.Group></Col>
   <Col sm={6}>  <Form.Group controlId="latestArrival">
     <Form.Label>Latest arrival</Form.Label>
-    <Form.Control size="lg" type="time" placeholder="Example 4:40 AM" onChange={this.onLatestArrival} required />
+    <Form.Control size="lg" type="time" placeholder="Example 4:40 AM" value={this.state.deliveryInfo.latestArrival} onChange={this.onLatestArrival} required />
   </Form.Group></Col>
   </Row>
   <h2>Delivery contact details</h2>
   <Row>
   <Col sm={6}>  <Form.Group controlId="phoneNumber">
     <Form.Label>Name</Form.Label>
-    <Form.Control size="lg" type="text" placeholder="Enter contact name" onChange={this.onDeliveryContactName} required />
+    <Form.Control size="lg" type="text" placeholder="Enter contact name" value={this.state.deliveryContactDetails.deliveryContactName} onChange={this.onDeliveryContactName} required />
   </Form.Group></Col>
-  <Col sm={6}>  <Form.Group controlId="contactName">
+  <Col sm={6}>  <Form.Group controlId="contactPhoneName">
     <Form.Label>Phone</Form.Label>
-    <Form.Control size="lg" type="text" placeholder="Enter contact phone number" onChange={this.onDeliveryContactPhone} required />
+    <Form.Control size="lg" type="text" placeholder="Enter contact phone number" value={this.state.deliveryContactDetails.deliveryContactPhone} onChange={this.onDeliveryContactPhone} required />
   </Form.Group></Col>
   </Row>
   <Button variant="primary" size="lg" block onClick={this.onSubmit}>
