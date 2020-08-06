@@ -13,7 +13,7 @@ const Customer = (props) =>{
         </Col>
         <Col sm={true}><p>{props.customer.Email}</p></Col>
         <Col sm={true}><p>{props.customer.Phone}</p></Col>
-        <Col sm={true}><NavLink to="customer/edit"><i className="icon edit"></i></NavLink></Col>
+        <Col sm={true}><NavLink to={"customer/edit"+props.customer._id}><i className="icon edit"></i></NavLink></Col>
     </Row>
     )
 }
