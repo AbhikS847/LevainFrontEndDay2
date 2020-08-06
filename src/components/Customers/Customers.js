@@ -4,6 +4,20 @@ import {Container,Row,Col} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 
 
+const Customer = (props) =>{
+    return (
+        <Row className="px-1 py-3" id="whiteBoard"> 
+        <Col sm={4}>
+            <b>{props.customer.businessName}</b>
+            <p>{props.customer.contactName}</p>
+        </Col>
+        <Col sm={4}><p>{props.customer.Email}</p></Col>
+        <Col sm={4}><p>{props.customer.Phone}</p></Col>
+    </Row>
+    )
+}
+
+
 class Customers extends React.Component{
 
     constructor(props){
@@ -22,6 +36,12 @@ class Customers extends React.Component{
         .catch((err)=>{console.log(err)})
     }
 
+    CustomerDisplay(){
+        return this.state.customers.map((currentCustomer,i)=>{
+            return <Customer customer={currentCustomer} key={i} />
+        })
+    }
+
     render(){
         return(
             <div>
@@ -38,14 +58,7 @@ class Customers extends React.Component{
         <Col>Email</Col>
         <Col>Phone</Col>
     </Row>
-    <Row className="px-1 py-3" id="whiteBoard"> 
-        <Col sm={4}>
-            <b>Comapny Name</b>
-            <p>Person</p>
-        </Col>
-        <Col sm={4}><p>Email</p></Col>
-        <Col sm={4}><p>Phone</p></Col>
-    </Row>
+        {this.CustomerDisplay()}
 
 </Container>
             </div>
