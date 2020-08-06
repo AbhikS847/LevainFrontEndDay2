@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Table} from 'react-bootstrap';
+import {Container,Row,Col} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 
 
@@ -32,35 +32,22 @@ class Customers extends React.Component{
     <NavLink to="/customer/add" className="nav-link mr-sm-2" activeClassName="nav-link-active"><h1><i className="icon plus small"></i></h1></NavLink>
   </form>
 </nav>
-<Table>
-    <thead>
-        <tr>
-            <th>
-            Basic info            
-            </th>
-            <th>
-            Email          
-            </th>
-            <th>
-            Phone            
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>
-        <b><p>Business name</p></b>
-        <p>Person name</p>
-    </td>
-    <td>
-        <p>Email address</p>
-    </td>
-    <td>
-        <p>Phone number</p>
-    </td>
-    </tr>
-    </tbody>
-</Table>
+<Container>
+    <Row className="px-2 py-2 d-none d-sm-flex"> 
+        <Col>Basic info</Col>
+        <Col>Email</Col>
+        <Col>Phone</Col>
+    </Row>
+    <Row className="px-1 py-3" id="whiteBoard"> 
+        <Col sm={4}>
+            <b>Comapny Name</b>
+            <p>Person</p>
+        </Col>
+        <Col sm={4}><p>Email</p></Col>
+        <Col sm={4}><p>Phone</p></Col>
+    </Row>
+
+</Container>
             </div>
         )
     }
