@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import axios from 'axios';
 import {Container, Button, Row, Form, Col} from 'react-bootstrap';
 
 class AddCustomer extends React.Component{
@@ -119,6 +120,23 @@ class AddCustomer extends React.Component{
     console.log(`The delivery contact phone number is ${this.state.deliveryContactPhone}`);
     console.log(`The delivery note is ${this.state.deliveryNotes}`);
 
+    const newCustomer = {
+      businessName:this.state.businessName,
+      contactName:this.state.contactName,
+      Phone:this.state.Phone,
+      Email:this.state.Email,
+      deliveryAddress:this.state.deliveryAddress,
+      keyedEntry:this.state.keyedEntry,
+      earliestArrival:this.state.earliestArrival,
+      latestArrival:this.state.latestArrival,
+      deliveryContactName:this.state.deliveryContactName,
+      deliveryContactPhone:this.state.deliveryContactPhone,
+      deliveryNotes:this.state.deliveryNotes
+    };
+
+    axios.post('http://localhost:5000/customers/add',newCustomer)
+    .then(res => console.log(res.data));
+
     this.setState({
         businessName:"",
         contactName:"",
@@ -189,11 +207,11 @@ class AddCustomer extends React.Component{
   </Form.Group></Col>
   <Col sm={6}>  <Form.Group controlId="earliestArrival">
     <Form.Label>Earliest arrival</Form.Label>
-    <Form.Control size="lg" type="time" placeholder="Example 12:00 AM" value={this.state.earliestArrival} onChange={this.onEarliestArrival} required />
+    <Form.Control size="lg" type="date" placeholder="Example 12:00 AM" value={this.state.earliestArrival} onChange={this.onEarliestArrival} required />
   </Form.Group></Col>
   <Col sm={6}>  <Form.Group controlId="latestArrival">
     <Form.Label>Latest arrival</Form.Label>
-    <Form.Control size="lg" type="time" placeholder="Example 4:40 AM" value={this.state.latestArrival} onChange={this.onLatestArrival} required />
+    <Form.Control size="lg" type="date" placeholder="Example 4:40 AM" value={this.state.latestArrival} onChange={this.onLatestArrival} required />
   </Form.Group></Col>
   </Row>
   <h2>Delivery contact details</h2>
