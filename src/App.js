@@ -6,6 +6,7 @@ import Today from './components/Today';
 import Customers from './components/Customers/Customers';
 import AddCustomer from './components/Customers/AddCustomer';
 import SearchCustomer from './components/Customers/SearchCustomer';
+import EditCustomer from './components/Customers/EditCustomer';
 import Production from './components/Production';
 import AddProduct from './components/Products/AddProducts';
 import AddOrder from './components/Orders/AddOrder';
@@ -23,7 +24,7 @@ class App extends React.Component{
                 <div className="col-auto py-3 px-3">
                     <Navbar />
                 </div>
-                <div className="col px-5 py-3" id="displaySide">
+                <div className="col py-3" id="displaySide">
                 <Route path="/products" exact component = {Products}></Route>
                 <Route path="/orders" exact component = {Orders}></Route>
                 <Route path="/today" exact component = {Today}></Route>
@@ -35,6 +36,7 @@ class App extends React.Component{
                 <Route path="/customers" exact component = {Customers}></Route>
                 <Route path="/customer/add" exact component = {AddCustomer}></Route>
                 <Route path="/customer/search" exact component = {SearchCustomer}></Route>
+                <Route path="/customer/edit" exact component = {EditCustomer}></Route>
                 </div>
             </div>
             </Router>

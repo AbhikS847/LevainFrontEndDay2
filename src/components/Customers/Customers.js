@@ -7,12 +7,13 @@ import {NavLink} from 'react-router-dom';
 const Customer = (props) =>{
     return (
         <Row className="px-1 py-3" id="whiteBoard"> 
-        <Col sm={4}>
+        <Col sm={true} >
             <b>{props.customer.businessName}</b>
             <p>{props.customer.contactName}</p>
         </Col>
-        <Col sm={4}><p>{props.customer.Email}</p></Col>
-        <Col sm={4}><p>{props.customer.Phone}</p></Col>
+        <Col sm={true}><p>{props.customer.Email}</p></Col>
+        <Col sm={true}><p>{props.customer.Phone}</p></Col>
+        <Col sm={true}><NavLink to="customer/edit"><i className="icon edit"></i></NavLink></Col>
     </Row>
     )
 }
