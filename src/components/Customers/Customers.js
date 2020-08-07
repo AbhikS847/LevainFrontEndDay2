@@ -7,13 +7,13 @@ import {NavLink} from 'react-router-dom';
 const Customer = (props) =>{
     return (
         <Row className="px-1 py-3" id="whiteBoard"> 
-        <Col xs={8} sm={4}>
+        <Col xs={8} md={5} lg={4}>
             <b>{props.customer.businessName}</b>
             <p>{props.customer.contactName}</p>
         </Col>
-        <Col xs={8} sm={4}><p>{props.customer.Email}</p></Col>
-        <Col xs={8} sm={2}><p>{props.customer.Phone}</p></Col>
-        <Col xs={8} sm={1}><NavLink to={`customer/edit/`+props.customer._id}><i className="icon edit"></i></NavLink></Col>
+        <Col xs={8} md={5} lg={4}><p>{props.customer.Email}</p></Col>
+        <Col xs={8} md={2} lg={2}><p>{props.customer.Phone}</p></Col>
+        <Col xs={8} md={1} lg={1}><NavLink to={`customer/edit/`+props.customer._id}><i className="icon edit"></i></NavLink></Col>
     </Row>
     )
 }
@@ -55,10 +55,10 @@ class Customers extends React.Component{
 </nav>
 <Container>
     <Row className="px-2 py-2 d-none d-sm-flex"> 
-        <Col sm={4}>Basic info</Col>
-        <Col sm={4}>Email</Col>
-        <Col sm={2}>Phone</Col>
-        <Col sm={1}></Col>
+        <Col md={5} lg={4}>Basic info</Col>
+        <Col md={5} lg={4}>Email</Col>
+        <Col md={2} lg={2}>Phone</Col>
+        <Col md={1} lg={1}></Col>
     </Row>
         {this.CustomerDisplay()}
 

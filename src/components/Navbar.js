@@ -11,7 +11,7 @@ class Navbar extends React.Component{
             <BootNav collapseOnSelect expand='sm'>
             <BootNav.Toggle aria-controls="responsive-navbar-nav" />
             <BootNav.Collapse id="responsive-navbar-nav">
-              <Nav defaultActiveKey="/home" className="flex-column mr-auto-column">
+              <Nav  className="flex-column mr-auto-column">
   <Nav.Link><NavLink to="/" className="nav-link" activeClassName="nav-link" ><h1>Levain</h1></NavLink></Nav.Link>
   <Nav.Link><NavLink to="/today" className="nav-link" activeClassName="nav-link active" ><i className="icon calendar outline"></i> Today</NavLink></Nav.Link>
   <Nav.Link><NavLink to="/production" className="nav-link" activeClassName="nav-link active" ><i className="icon calendar"></i> Production</NavLink></Nav.Link>

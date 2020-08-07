@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
+import {Row,Col} from 'react-bootstrap';
 import Products from './components/Products/Products';
 import Orders from './components/Orders/Orders';
 import Today from './components/Today';
@@ -20,11 +21,11 @@ class App extends React.Component{
         return(
             <div className="App">
             <Router>
-            <div className="row" id="appHeader">
-                <div className="col-auto py-3 px-3">
+            <Row>
+            <Col sm={0}>
                     <Navbar />
-                </div>
-                <div className="col py-3" id="displaySide">
+                    </Col>
+                    <Col sm={10}>
                 <Route path="/products" exact component = {Products}></Route>
                 <Route path="/orders" exact component = {Orders}></Route>
                 <Route path="/today" exact component = {Today}></Route>
@@ -37,9 +38,10 @@ class App extends React.Component{
                 <Route path="/customer/add" exact component = {AddCustomer}></Route>
                 <Route path="/customer/search" exact component = {SearchCustomer}></Route>
                 <Route path="/customer/edit/:id" exact component = {EditCustomer}></Route>
-                </div>
-            </div>
+                </Col>
+                </Row>
             </Router>
+            
             </div>
         )
     }
