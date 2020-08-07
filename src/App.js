@@ -36,7 +36,7 @@ class App extends React.Component{
                 <Route path="/customers" exact component = {Customers}></Route>
                 <Route path="/customer/add" exact component = {AddCustomer}></Route>
                 <Route path="/customer/search" exact component = {SearchCustomer}></Route>
-                <Route path="/customer/edit" exact component = {EditCustomer}></Route>
+                <Route path="/customer/edit/:id" exact component = {EditCustomer}></Route>
                 </div>
             </div>
             </Router>

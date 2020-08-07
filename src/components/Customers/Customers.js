@@ -7,13 +7,13 @@ import {NavLink} from 'react-router-dom';
 const Customer = (props) =>{
     return (
         <Row className="px-1 py-3" id="whiteBoard"> 
-        <Col sm={true} >
+        <Col xs={8} sm={true}>
             <b>{props.customer.businessName}</b>
             <p>{props.customer.contactName}</p>
         </Col>
-        <Col sm={true}><p>{props.customer.Email}</p></Col>
-        <Col sm={true}><p>{props.customer.Phone}</p></Col>
-        <Col sm={true}><NavLink to={"customer/edit"+props.customer._id}><i className="icon edit"></i></NavLink></Col>
+        <Col xs={8} sm={true}><p>{props.customer.Email}</p></Col>
+        <Col xs={8} sm={true}><p>{props.customer.Phone}</p></Col>
+        <Col xs={8} sm={true}><NavLink to={`customer/edit/`+props.customer._id}><i className="icon edit"></i></NavLink></Col>
     </Row>
     )
 }
@@ -55,9 +55,10 @@ class Customers extends React.Component{
 </nav>
 <Container>
     <Row className="px-2 py-2 d-none d-sm-flex"> 
-        <Col>Basic info</Col>
-        <Col>Email</Col>
-        <Col>Phone</Col>
+        <Col sm={true}>Basic info</Col>
+        <Col sm={true}>Email</Col>
+        <Col sm={true}>Phone</Col>
+        <Col sm={true}></Col>
     </Row>
         {this.CustomerDisplay()}
 
